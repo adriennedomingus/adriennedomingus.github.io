@@ -4,63 +4,67 @@ layout: post
 date: 2016-01-10
 ---
 
-The project spec for <a href="https://github.com/turingschool/curriculum/blob/54f6becf7a40ed2019d1ecc9a26598d911f2c1d3/source/projects/http_yeah_you_know_me.markdown" target="_blank">HTTP Yeah You Know Me</a> (I don't name these things!) can be found here, and the repo containing the project I completed with Nate Venn can be found <a href="https://github.com/adriennedomingus/http_yeah_you_know_me" target="_blank">here</a>. I know Nate and I both would like to have had more time to refactor and improve our code, but the nature of the beast prohibited it. It may yet change if we find that time.
+<p>The project spec for <a href="https://github.com/turingschool/curriculum/blob/54f6becf7a40ed2019d1ecc9a26598d911f2c1d3/source/projects/http_yeah_you_know_me.markdown" target="_blank">HTTP Yeah You Know Me</a> (I don't name these things!) can be found here, and the repo containing the project I completed with Nate Venn can be found <a href="https://github.com/adriennedomingus/http_yeah_you_know_me" target="_blank">here</a>. I know Nate and I both would like to have had more time to refactor and improve our code, but the nature of the beast prohibited it. It may yet change if we find that time.</p>
 <br>
-To date, this is the project that has taught me the most, so here are some reflections on what worked and what didn't.
-<br>
-<br>
-<strong>The Internet is Magic</strong>
+<p>To date, this is the project that has taught me the most, so here are some reflections on what worked and what didn't.</p>
 <br>
 <br>
-Turns out it's not, actually. Some of that feeling lingers, but I have a better understanding now of how the HTTP Request/Response cycle works that I hope to be able to apply once we move into things like Rails.
+<p><strong>The Internet is Magic</strong></p>
 <br>
-Here's the gist of it:
 <br>
-We created a server that listens to port 9292 using Ruby's TCPServer class:
+<p>Turns out it's not, actually. Some of that feeling lingers, but I have a better understanding now of how the HTTP Request/Response cycle works that I hope to be able to apply once we move into things like Rails.</p>
+<br>
+<p>Here's the gist of it:</p>
+<br>
+<p>We created a server that listens to port 9292 using Ruby's TCPServer class:</p>
 <br>
 <img src="/images/2016-01-10/01.png" alt="image 01" />
 <br>
-You can see all the methods a TCP Server can take <a href="http://ruby-doc.org/stdlib-1.9.3/libdoc/socket/rdoc/TCPServer.html#method-i-accept" target="_blank">here</a>. It's not much.
+<p>You can see all the methods a TCP Server can take <a href="http://ruby-doc.org/stdlib-1.9.3/libdoc/socket/rdoc/TCPServer.html#method-i-accept" target="_blank">here</a>. It's not much.</p>
 <br>
-But what it can do is accept requests (it's really line 13 we're looking at here):
+<p>But what it can do is accept requests (it's really line 13 we're looking at here):</p>
 <br>
 <img src="/images/2016-01-10/02.png" alt="image 02" />
 <br>
-So once you open your server (do some other stuff, and then run the file from your command line), you can send it a request from your browser:
+<p>So once you open your server (do some other stuff, and then run the file from your command line), you can send it a request from your browser:</p>
 <br>
 <img src="/images/2016-01-10/03.png" alt="image 03" />
 <br>
-This is what the request looks like:
+<p>This is what the request looks like:</p>
 <img src="/images/2016-01-10/04.png" alt="image 04" />
 <br>
-Technically, this is the formatted version that lines 14-17 above were creating, shoveling each line (each time you run client.gets) into an array, so that we could work with it later - each array element is one line of the client request.
+<p>Technically, this is the formatted version that lines 14-17 above were creating, shoveling each line (each time you run client.gets) into an array, so that we could work with it later - each array element is one line of the client request.</p>
 <br>
-Once you have that, you can do anything with it. I exaggerate, but you can do a whole lot with it. It becomes more obvious when you send a request that has a path and parameters:
+<p>Once you have that, you can do anything with it. I exaggerate, but you can do a whole lot with it. It becomes more obvious when you send a request that has a path and parameters:</p>
 <br>
 <img src="/images/2016-01-10/05.png" alt="image 05" />
 <br>
-<img src="/images/2016-01-10/06.png" alt="image 06" />You can do different things based on the verb and path (show different output, redirect...), you can do things with the parameters (we had to use our computer's dictionary to determine whether the parameter was a known word or not), and on and on.
+<img src="/images/2016-01-10/06.png" alt="image 06" />
 <br>
-The above approach becomes a little problematic once you need to send <span class="code">POST</span> requests with the parameters in the body instead of the url. There is an empty line between the headers and the body of the request, and that code definitionally stops when it hits a blank line, but we'll leave it there for our purposes.
+<p>You can do different things based on the verb and path (show different output, redirect...), you can do things with the parameters (we had to use our computer's dictionary to determine whether the parameter was a known word or not), and on and on.</p>
 <br>
-All that's left after that is to send the server a response, so that it knows what to do with the request:
+<p>The above approach becomes a little problematic once you need to send <span class="code">POST</span> requests with the parameters in the body instead of the url. There is an empty line between the headers and the body of the request, and that code definitionally stops when it hits a blank line, but we'll leave it there for our purposes.</p>
 <br>
-<img src="/images/2016-01-10/07.png" alt="image 07" />Mostly, ours ran the <span class="code">server_response</span> method (lines 43-52), but the game required a redirect, so followed the <span class="code">game_server_response</span> method (lines 54-61). The <span class="code">@response</span> variable (lines 44 and 55) contained the information we wanted outputted to the browser, and was determined and formatted elsewhere, not shown.
+<p>All that's left after that is to send the server a response, so that it knows what to do with the request:</p>
 <br>
-This was all run in a loop, so you could send a new request after each response. So there you have it - an HTTP Request/Response cycle!
+<img src="/images/2016-01-10/07.png" alt="image 07" />
 <br>
+<p>Mostly, ours ran the <span class="code">server_response</span> method (lines 43-52), but the game required a redirect, so followed the <span class="code">game_server_response</span> method (lines 54-61). The <span class="code">@response</span> variable (lines 44 and 55) contained the information we wanted outputted to the browser, and was determined and formatted elsewhere, not shown.</p>
 <br>
-<strong>Functionality vs. All the Rest of the Stuff</strong>
-<br>
-<br>
-All of the instructors at Turing tells us (verbally, but also through things like the grading rubric at the bottom of project specs), that functionality is one of the things that matters, but by no means is it the only thing that matters. I get caught up in that sometimes - wanting it to work so badly that I lose sight of all the rest. That definitely happened in this project, but I think I'll revisit this topic on its own some other time. It's worth the consideration.
+<p>This was all run in a loop, so you could send a new request after each response. So there you have it - an HTTP Request/Response cycle!</p>
 <br>
 <br>
-<strong>Iterative Programming</strong>
+<p><strong>Functionality vs. All the Rest of the Stuff</strong></p>
 <br>
 <br>
-As you can see in the project spec, we were expected to do one iteration on a time, with each iteration built upon the last. This makes a lot of sense, but isn't something I do naturally. (Here's to changing that). If I had been given a project spec that listed all the things I needed to be able to accomplish through iteration four, I would have approached it differently.
+<p>All of the instructors at Turing tells us (verbally, but also through things like the grading rubric at the bottom of project specs), that functionality is one of the things that matters, but by no means is it the only thing that matters. I get caught up in that sometimes - wanting it to work so badly that I lose sight of all the rest. That definitely happened in this project, but I think I'll revisit this topic on its own some other time. It's worth the consideration.</p>
 <br>
-It's hard to say for sure what I would have done, but a likely scenario involves the awareness of the need to support different paths and parameters, which might have led me to start parsing the request and building out the support for paths before worrying about being able to output a message and debugging statistics to the browser at all. Think about how confusing that might have been. Inefficient, at the least.
 <br>
-The lesson: when given projects that aren't broken out into iterations for me - think about that before I start writing code.
+<p><strong>Iterative Programming</strong></p>
+<br>
+<br>
+<p>As you can see in the project spec, we were expected to do one iteration on a time, with each iteration built upon the last. This makes a lot of sense, but isn't something I do naturally. (Here's to changing that). If I had been given a project spec that listed all the things I needed to be able to accomplish through iteration four, I would have approached it differently.</p>
+<br>
+It's hard to say for sure what I would have done, but a likely scenario involves the awareness of the need to support different paths and parameters, which might have led me to start parsing the request and building out the support for paths before worrying about being able to output a message and debugging statistics to the browser at all. Think about how confusing that might have been. Inefficient, at the least.</p>
+<br>
+<p>The lesson: when given projects that aren't broken out into iterations for me - think about that before I start writing code.</p>
