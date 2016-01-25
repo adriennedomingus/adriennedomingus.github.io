@@ -79,8 +79,13 @@ p {
   color: #939292;
 }
 
+.index-post-date {
+  color: #939292;
+}
+
 .menu-link {
   text-decoration: none;
+  color: #f55449;
 }
 
 #post-list {
@@ -89,5 +94,5 @@ p {
 }
 
 hr {
-  color: #1b4b5a;
+  border: 1px solid #1b4b5a;
 }
