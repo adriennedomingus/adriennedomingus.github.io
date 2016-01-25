@@ -13,6 +13,15 @@ p {
   margin: auto;
 }
 
+#connect-content {
+  width: 70%;
+  margin: auto;
+}
+
+.link-logo {
+  height: 35px;
+}
+
 .code {
   font-size: 1.25em;
   background-color: #d3cfcf;
