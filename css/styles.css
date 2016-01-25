@@ -71,16 +71,17 @@ p {
 .post-title {
   font-family: 'PT Sans Caption', sans-serif;
   text-align: center;
+  color: #f55449;
 }
 
 .post-date {
   font-family: 'PT Sans Caption', sans-serif;
   text-align: center;
-  color: #939292;
+  color: #8C766E;
 }
 
 .index-post-date {
-  color: #939292;
+  color: #8C766E;
 }
 
 .menu-link {
@@ -94,5 +95,5 @@ p {
 }
 
 hr {
-  border: 1px solid #1b4b5a;
+  border: 1px solid #8C766E;
 }
