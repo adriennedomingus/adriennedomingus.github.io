@@ -3,12 +3,16 @@ p {
 }
 
 #site-title {
-  font-size: 3em;
-  margin: auto;
+  font-family: inherit;
+  font-size: 32px;
+  text-align: center;
   width: 60%
+  padding-top: 75px;
+  padding-bottom: 75px;
 }
 
 #menu-bar {
+  font-family: inherit;
   width: 70%;
   margin: auto;
 }
@@ -19,7 +23,7 @@ p {
 }
 
 .link-logo {
-  height: 35px;
+  height: 45px;
 }
 
 .code {
@@ -32,4 +36,15 @@ p {
   display: inline;
   margin: auto;
   width: 25%;
+  text-decoration: none;
+}
+
+.post-contents {
+  width: 70%;
+  margin: auto;
+}
+
+#post-list {
+  width: 70%;
+  margin: auto;
 }
