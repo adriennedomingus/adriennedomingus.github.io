@@ -6,7 +6,9 @@ p {
   font-family: 'PT Sans Caption', sans-serif;
   font-size: 32px;
   text-align: center;
+  margin: auto;
   width: 60%;
+  letter-spacing: 4px;
   padding-top: 50px;
   padding-bottom: 50px;
 }
