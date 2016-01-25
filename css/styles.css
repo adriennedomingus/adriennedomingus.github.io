@@ -18,7 +18,6 @@ p {
   width: 70%;
   margin: auto;
   text-align: center;
-  text-decoration: none;
 }
 
 #connect-content {
@@ -44,6 +43,13 @@ p {
   height: 45px;
 }
 
+.post-link {
+  font-family: 'PT Sans Caption', sans-serif;
+  font-size: 28px;
+  text-decoration: none;
+  color: #f55449;
+}
+
 .code {
   font-size: 1.1em;
   background-color: #d3cfcf;
@@ -54,7 +60,6 @@ p {
   display: inline;
   margin: auto;
   width: 25%;
-  text-decoration: none;
   padding: 10px;
 }
 
@@ -81,4 +86,8 @@ p {
 #post-list {
   width: 70%;
   margin: auto;
+}
+
+hr {
+  color: #1b4b5a;
 }
