@@ -20,9 +20,17 @@ p {
 #connect-content {
   width: 70%;
   margin: auto;
+  font-family: "Courier New", Courier, monospace;
+}
+
+#contact-images {
+  text-align: center;
 }
 
 .link-logo {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
   height: 45px;
 }
 
