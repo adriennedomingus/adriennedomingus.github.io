@@ -4,5 +4,15 @@ p {
 
 .code {
   font-family: monospace;
-  background-color: #c6bebe;
+  font-size: 1.25em;
+  background-color: #d3cfcf;
+}
+
+.menu-bar {
+  list-style-type: none;
+  display: inline;
+}
+
+.link-logos {
+  height: 50px;
 }
