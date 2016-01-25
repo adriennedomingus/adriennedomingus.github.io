@@ -32,16 +32,8 @@ p {
   text-align: center;
 }
 
-#float-left {
-  float: left;
-}
-
-#float-right {
-  float: right;
-}
-
-.clear {
-  clear: both;
+.inline {
+  display: inline-block;
 }
 
 .link-logo {
