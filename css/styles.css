@@ -50,7 +50,7 @@ p {
   margin: auto;
   width: 25%;
   text-decoration: none;
-  padding: 5px;
+  padding: 10px;
 }
 
 .post-contents {
@@ -60,7 +60,12 @@ p {
 
 .post-title {
   font-family: 'PT Sans Caption', sans-serif;
-  text-align: center
+  text-align: center;
+}
+
+.post-date {
+  text-align: center;
+  color: #939292;
 }
 
 #post-list {
