@@ -74,6 +74,10 @@ p {
   color: #939292;
 }
 
+.menu-link {
+  text-decoration: none;
+}
+
 #post-list {
   width: 70%;
   margin: auto;
