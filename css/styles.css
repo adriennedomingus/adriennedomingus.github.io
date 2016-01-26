@@ -46,7 +46,7 @@ p {
   height: 45px;
 }
 
-.post-link {
+a.post-link {
   font-family: 'PT Sans Caption', sans-serif;
   font-size: 28px;
   text-decoration: none;
