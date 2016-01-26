@@ -1,7 +1,7 @@
-/*p {
+p {
  font-family: "Courier New", Courier, monospace;
  color: #1b4b5a;
-}*/
+}
 
 #site-title {
   font-family: 'PT Sans Caption', sans-serif;
@@ -115,6 +115,6 @@ a:visited {
   color: #8C766E;
 }
 
-/*body {
+body {
   color: #1b4b5a;
-}*/
+}
