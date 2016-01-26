@@ -15,11 +15,11 @@ layout: post
   <p>So once you open your server (do some other stuff, and then run the file from your command line), you can send it a request from your browser:</p>
   <img src="/images/2016-01-10/03.png" alt="image 03" />
   <p>This is what the request looks like:</p>
-  <img src="/images/2016-01-10/04.png" alt="image 04" />
+  <img class="command-line" src="/images/2016-01-10/04.png" alt="image 04" />
   <p>Technically, this is the formatted version that lines 14-17 above were creating, shoveling each line (each time you run client.gets) into an array, so that we could work with it later - each array element is one line of the client request.</p>
   <p>Once you have that, you can do anything with it. I exaggerate, but you can do a whole lot with it. It becomes more obvious when you send a request that has a path and parameters:</p>
   <img src="/images/2016-01-10/05.png" alt="image 05" />
-  <img src="/images/2016-01-10/06.png" alt="image 06" />
+  <img class="command-line" src="/images/2016-01-10/06.png" alt="image 06" />
   <p>You can do different things based on the verb and path (show different output, redirect...), you can do things with the parameters (we had to use our computer's dictionary to determine whether the parameter was a known word or not), and on and on.</p>
   <p>The above approach becomes a little problematic once you need to send <span class="code">POST</span> requests with the parameters in the body instead of the url. There is an empty line between the headers and the body of the request, and that code definitionally stops when it hits a blank line, but we'll leave it there for our purposes.</p>
   <p>All that's left after that is to send the server a response, so that it knows what to do with the request:</p>

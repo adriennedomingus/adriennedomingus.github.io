@@ -1,5 +1,6 @@
 p {
  font-family: "Courier New", Courier, monospace;
+ color: #0D1E35;
 }
 
 #site-title {
@@ -94,6 +95,10 @@ p {
 #post-list {
   width: 70%;
   margin: auto;
+}
+
+.command-line {
+  width: 70%
 }
 
 hr {
