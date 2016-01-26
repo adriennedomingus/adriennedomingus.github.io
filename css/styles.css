@@ -100,9 +100,13 @@ p {
 }
 
 .command-line {
-  width: 70%
+  width: 100%
 }
 
 hr {
   border: 1px solid #8C766E;
+}
+
+body {
+  color: #1b4b5a; 
 }
