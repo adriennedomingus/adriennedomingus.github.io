@@ -27,6 +27,7 @@ p {
   margin: auto;
   font-family: "Courier New", Courier, monospace;
   padding-top: 25px;
+  color: #0D1E35;
 }
 
 #contact-images {
@@ -68,6 +69,7 @@ p {
 .post-contents {
   width: 70%;
   margin: auto;
+  color: #0D1E35;
 }
 
 .post-title {
