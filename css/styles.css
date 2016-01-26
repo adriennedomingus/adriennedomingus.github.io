@@ -83,15 +83,12 @@ p {
 
 .index-post-date {
   color: #8C766E;
+  float: right;
 }
 
 .menu-link {
   text-decoration: none;
   color: #f55449;
-}
-
-a:active .menu-link {
-  font-size: 1.5em;
 }
 
 #post-list {
