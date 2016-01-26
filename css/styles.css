@@ -1,6 +1,6 @@
 p {
  font-family: "Courier New", Courier, monospace;
- color: #0D1E35;
+ color: #1b4b5a;
 }
 
 #site-title {
@@ -27,7 +27,7 @@ p {
   margin: auto;
   font-family: "Courier New", Courier, monospace;
   padding-top: 25px;
-  color: #0D1E35;
+  color: #1b4b5a;
 }
 
 #contact-images {
@@ -69,7 +69,7 @@ p {
 .post-contents {
   width: 70%;
   margin: auto;
-  color: #0D1E35;
+  color: #1b4b5a;
 }
 
 .post-title {
