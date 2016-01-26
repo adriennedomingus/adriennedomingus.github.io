@@ -5,6 +5,6 @@ layout: default
 {% for post in site.posts %}
   <h2 class="inline"><a class="post-link" href="{{ post.url }}">{{ post.title }}</a></h2>
   <h4 class="inline index-post-date">{{ post.date | date: "%m-%d-%Y" }}</h4>
-  <p>{{ post.content | strip_html | truncatewords:35}}</p>
+  <p>{{ post.content | strip_html | truncatewords:50}}</p>
 {% endfor %}
 </div>
