@@ -10,7 +10,7 @@ p {
   text-align: center;
   margin: auto;
   width: 60%;
-  letter-spacing: 4px;
+  letter-spacing: 6px;
   padding-top: 50px;
   padding-bottom: 50px;
 }
@@ -108,5 +108,5 @@ hr {
 }
 
 body {
-  color: #1b4b5a; 
+  color: #1b4b5a;
 }
