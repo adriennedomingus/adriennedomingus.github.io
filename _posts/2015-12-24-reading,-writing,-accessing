@@ -1,0 +1,14 @@
+---
+layout: post
+---
+<div class="post-contents">
+  <p>Fun fact: I don't blog for you, I blog for me.
+  <p>I know. But really, case in point right here. This is not a particularly complicated concept, but it's something that is easy to get lazy about, and something I've been thinking about. If I write it down, I'm more likely to follow through. So here we are.</p>
+  <p>As a new rubyist, scope is not always immediately obvious to me. What is obvious to me, is when I get an error that says something like <code>NoMethodError: undefined method '[]' for nil:NilClass</code> when the thing I'm calling the method on is definitely not nil. By which I mean, of course, definitely <em>should not be</em> nil, but apparently is. (Because, if there's an error, it's a pretty safe bet that the computer is not wrong, I am).</p>
+  <p>When that happens, it's easy to fall back on - 'make it an instance variable!' or 'give it an attr_accessor!' and it usually works. But that doesn't make it the right decision. The why of that is buried in what happens when you do each of those:</p>
+  <img src="/images/2015-12-24/01.png" alt="image 01" />
+  <p>So even though the code you write looks very nearly identical, what is happening behind the scenes is not the same. If your app is small and isn't going to change often; if you're the only person who is going to work on it, there's not much harm in creating an accessor if all you really need is a reader, but think about:</p>
+   <p>-What it tells someone else looking at your code to expect. One of the beautiful things about Ruby is that it doesn't require verbose comments to document functionality the way other languages do, but that does mean you need to be more intentional about using the code itself as documentation. This requires some precision.</p>
+   <p>-What happens to the variables on your stack as you run through it, and how you might accidentally mutate the value of something, when you actually just wanted to use its data.</p>
+  <p>So, note to self (and you): don't create an accessor unless you actually need one.</p>
+</div>
