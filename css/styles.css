@@ -103,6 +103,14 @@ a.post-link {
   width: 100%
 }
 
+.previous-post {
+  float: right;
+}
+
+.next-post {
+  float: left;
+}
+
 hr {
   border: 1px solid #8C766E;
 }
