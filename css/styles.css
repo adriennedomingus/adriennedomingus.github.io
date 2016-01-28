@@ -104,6 +104,10 @@ a.post-link {
   margin: auto;
 }
 
+#cat {
+  height: 200px;
+}
+
 .command-line {
   width: 100%
 }
