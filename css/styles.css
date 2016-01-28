@@ -129,7 +129,7 @@ a.post-link {
 }
 
 .container {
-  height: calc(100vh - 195px);
+  height: calc(100vh - 193px);
   overflow-y: auto;
 }
 
