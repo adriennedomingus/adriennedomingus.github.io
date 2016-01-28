@@ -34,6 +34,11 @@ p {
   text-align: center;
 }
 
+#content-404 {
+  text-align: center;
+  margin-top: 25px;
+}
+
 .inline {
   display: inline-block;
 }
