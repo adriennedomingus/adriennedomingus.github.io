@@ -5,11 +5,9 @@ layout: post
   <p>A recent project at Turing involved creating an Enigma machine of sorts that encrypted and decrypted messages by rotating each character to a new one based on a randomly generated key and a date, with different rotators based on the location of the character in the message.</p>
   <p>Once I had the functionality working, I realized I had a method in both my decrypt and encrypt classes that did the exact same thing, but in reverse in the case of decrypt. It looked like this:</p>
   <script src="https://gist.github.com/adriennedomingus/8a2347a7eab2bd3e19c9.js"></script>
-  <!-- <img src="/images/2015-12-19/01.png" alt="image 01" /> -->
   <p>Basically, the <span class="code">indices_and_rotators</span> variable contains a 2D array of the initial index of the character, and the number of characters by which it was to be rotated. As you can see, the only difference in these two methods is that I'm adding the index and rotator together in the case of <span class="code">Encrypt</span>, and subtracting them in the case of <span class="code">Decrypt</span>. In the spirit of DRYing up my code, I wanted to do something about this.</p>
   <p>I'll walk through how it works, but first, spoiler alert - here's what I ended up with:  </p>
   <script src="https://gist.github.com/adriennedomingus/078f19b36fd6337bca7d.js"></script>
-  <!-- <img src="/images/2015-12-19/02.png" alt="image 02" /> -->
   <p>In the actual code, each of these methods is in a different Class and different files, but I've brought them together just to simplify viewing. Here's how this works:</p>
   <p>First, do all the setup (calling the <span class="code">which_rotator</span> method, defined previously, and setting up the <span class="code">new_indices</span> variable as an empty array) in the <span class="code">rotate_indices</span> method so you don't have to do it twice. Note that the <span class="code">new_indices</span> variable now needs to be an instance variable so that it's accessible across methods.</p>
   <p>In the <span class="code">rotate_indices</span> method, which both <span class="code">Encrypt</span> and <span class="code">Decrypt</span> have access to, call the block as an argument. Do this by calling <span class="code">&block</span> as an argument in the method. You can call it whatever you want, as long as it starts with the ampersand, and you use the same name below when you call the block (line 6 in my example). This block argument does have to be the last one you pass your method.</p>
@@ -17,7 +15,6 @@ layout: post
   <p>Once you've created your Proc, you can call it in the different <span class="code">rotate_message</span> methods. <span class="code">initial</span> references <span class="code">indices_and_rotators[i][0]</span> and <span class="code">rotation</span> references <span class="code">indices_and_rotators[i][1]</span>. Then you can pass each the separate method that they need. (Yes, <span class="code">+</span> and <span class="code">-</span> are methods, you can write them the way you can because of Ruby's syntactic sugar).</p>
   <p> This is another brief example. The <span class="code">accumulate</span> method is basically a rewriting of the built in <span class="code">map</span> method.</p>
   <script src="https://gist.github.com/adriennedomingus/96cc866466b7794e0b7d.js"></script>
-  <!-- <img src="/images/2015-12-19/04.png" alt="image 04" /> -->
   <p>Success! Cheers to Josh Cheek for showing me how this works.</p>
   <a class="inline previous-post" href="http://adriennedomingus.github.io/2015/11/29/why-programming.html">...Previous Post</a>
   <a class="inline next-post" href="http://adriennedomingus.github.io/2015/12/24/reading,-writing,-accessing.html"> Next Post...</a>
