@@ -13,10 +13,12 @@ layout: post
 <p><strong>Test database</strong></p>
 <p>In order to ensure that you don’t corrupt your actual data, make sure your tests are running off of a different database than development and production. Like this:</p>
 <script src="https://gist.github.com/adriennedomingus/9517381bb6b87894899f.js"></script>
-<p><strong>Database Cleaner</strong></p>
+<p><strong>Test Helper</strong></p>
 <p>When writing tests, you’ll need to know exactly what is in the database, as that will inform your assertions. The only way to be sure of this is to start with a clean slate for each test. We used Database cleaner to do this. You already have the gem in your Gemfile, so setup is once again in our <span class="code">test_helper</span> file. The following is in that file:</p>
 <script src="https://gist.github.com/adriennedomingus/4b100171dcf54e5152a1.js"></script>
 <p>The <span class="code">TestHelper</span> module is included in each testing class. Minitest automatically runs both setup and teardown methods with each test, so you won’t need to call them manually.</p>
+<p>Line 11 tells Capybara which controller to use when running the tests</p>
+<p>Line 12 just tells the program where to save the html files that are generated when you run the <span class="code">save_and_open_page_path</span> command, so you can add that file to your .gitignore file.</p>
 <p><strong>User Stories</strong></p>
 <p>Capybara tests are based on the user experience, which shouldn’t require any knowledge of what the code base looks like. First write a user story ( in the Agile sense of the word), and then write the test to represent it. The basic user story format is as follows:</p>
 <p class="indent">As a [user] (What kind of user? Guest? Authenticated? New? Existing but unauthenticated?)
