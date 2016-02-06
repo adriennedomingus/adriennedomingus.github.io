@@ -5,21 +5,20 @@ layout: post
 <p>A beginning note: Because we’re using Sinatra as a stepping stone to Rails, we built our app with the MVC model, and the testing reflects that. </p>
 <p><strong>Gems</strong></p>
 <p>First things first. Add the following to your gemfile, if they’re not already there:</p>
-<img src="/images/2016-02-07/01.png" alt="image 01" />
+<img class="command-line" src="/images/2016-02-07/01.png" alt="image 01" />
 <p><em>Minitest:</em> Capybara uses minitest. You should have model tests that use it too (unless you’re using something like Rspec instead).</p>
 <p><em>Capybara:</em> obviously you need capybara to run capybara.</p>
 <p><em>Launchy:</em> this allows you to run the <span class="code">save_and_open_page_path</span> command when writing your tests. When you do this, it saves a copy of the html page your test currently has you on, and opens it in a browser - used for debugging.</p>
 <p><em>Database cleaner:</em> allows you to wipe and reset your database at the beginning and end of each test. More on this later.</p>
 <p><strong>Test database</strong></p>
 <p>In order to ensure that you don’t corrupt your actual data, make sure your tests are running off of a different database than development and production. Like this:</p>
-<img src="/images/2016-02-07/02.png" alt="image 02" />
+<img class="command-line" src="/images/2016-02-07/02.png" alt="image 02" />
 <p>The following line is then in my <span class=”code”>test_helper</span> file, so tests use the test database:</p>
-<img src="/images/2016-02-07/03.png" alt="image 03" />
+<img class="command-line" src="/images/2016-02-07/03.png" alt="image 03" />
 <p><strong>Database Cleaner</strong></p>
 <p>When writing tests, you’ll need to know exactly what is in the database, as that will inform your assertions. The only way to be sure of this is to start with a clean slate for each test. We used Database cleaner to do this. You already have the gem in your Gemfile, so setup is once again in our <span class=”code”>test_helper</span> file. The following is in that file:</p>
-<img>
+<img class="command-line" src="/images/2016-02-07/04.png" alt="image 04" />
 <p>The <span class=”code”>TestHelper </span> module is included in each testing class. Minitest automatically runs both setup and teardown methods with each test, so you won’t need to call them manually.</p>
-<img src="/images/2016-02-07/04.png" alt="image 04" />
 <p><strong>User Stories</strong></p>
 <p>Capybara tests are based on the user experience, which shouldn’t require any knowledge of what the code base looks like. First write a user story ( in the Agile sense of the word), and then write the test to represent it. The basic user story format is as follows:</p>
 <p class="indent">As a [user] (What kind of user? Guest? Authenticated? New? Existing but unauthenticated?)
@@ -38,10 +37,10 @@ layout: post
 <p class="indent">Then I should see my skill listed there with the above title and category</p>
 <p><strong>Capybara syntax</strong></p>
 <p>All that’s left to do after that is to translate the above user story into Capybara. My whole test looks like this (each line of the test can effectively be mapped to a line of the user story, above):</p>
-<img src="/images/2016-02-07/05.png" alt="image 05" />
+<img class="command-line" src="/images/2016-02-07/05.png" alt="image 05" />
 <p><span class=”code”>visit</span>, <span class=”code”>fill_in</span>, <span class=”code”>select</span>, <span class=”code”>click_button</span>, <span class=”code”>current_path</span>, <span class=”code”>within</span>, and <span class=”code”>has_content?</span> are all built in Capybara methods. A more complete list of available methods and how to use them can be found <a href="https://upcase.com/test-driven-rails-resources/capybara.pdf">here</a></p>
 <p>All that’s left from there is to run the test and see the rainbow!</p>
-<img src="/images/2016-02-07/06.png" alt="image 06" />
+<img class="command-line" src="/images/2016-02-07/06.png" alt="image 06" />
 <p>You should, of course, have tests for each piece of your CRUD functionality, both for when the user does everything as expected, as well as edge cases and exceptions. The process will be the same for all of these. Happy testing!</p>
 <a class="inline previous-post" href="http://adriennedomingus.github.io/2016/01/28/failure-and-the-fear-of-it.html">...Previous Post</a>
 </div>
