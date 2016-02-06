@@ -8,38 +8,38 @@ layout: post
 <img src="/images/2016-02-07/01.png" alt="image 01" />
 <p><em>Minitest:</em> Capybara uses minitest. You should have model tests that use it too (unless you’re using something like Rspec instead).</p>
 <p><em>Capybara:</em> obviously you need capybara to run capybara.</p>
-<p><em>Launchy:</em> this allows you to run the <span =”code”>save_and_open_page_path</span> command when writing your tests. When you do this, it saves a copy of the html page your test currently has you on, and opens it in a browser - used for debugging.</p>
+<p><em>Launchy:</em> this allows you to run the <span class=”code”>save_and_open_page_path</span> command when writing your tests. When you do this, it saves a copy of the html page your test currently has you on, and opens it in a browser - used for debugging.</p>
 <p><em>Database cleaner:</em> allows you to wipe and reset your database at the beginning and end of each test. More on this later.</p>
 <p><strong>Test database</strong></p>
 <p>In order to ensure that you don’t corrupt your actual data, make sure your tests are running off of a different database than development and production. Like this:</p>
 <img src="/images/2016-02-07/02.png" alt="image 02" />
-The following line is then in my <span =”code”>test_helper</span> file:
+<p>The following line is then in my <span class=”code”>test_helper</span> file, so tests use the test database:</p>
 <img src="/images/2016-02-07/03.png" alt="image 03" />
 <p><strong>Database Cleaner</strong></p>
-<p>When writing tests, you’ll need to know exactly what is in the database, as that will inform your assertions. The only way to be sure of this is to start with a clean slate for each test. We used Database cleaner to do this. You already have the gem in your Gemfile, so setup is once again in our <span =”code”>test_helper</span> file. The following is in that file:</p>
+<p>When writing tests, you’ll need to know exactly what is in the database, as that will inform your assertions. The only way to be sure of this is to start with a clean slate for each test. We used Database cleaner to do this. You already have the gem in your Gemfile, so setup is once again in our <span class=”code”>test_helper</span> file. The following is in that file:</p>
 <img>
-The <span =”code”>TestHelper </span> module is included in each testing class. Minitest automatically runs both setup and teardown methods with each test, so you won’t need to call them manually.
+<p>The <span class=”code”>TestHelper </span> module is included in each testing class. Minitest automatically runs both setup and teardown methods with each test, so you won’t need to call them manually.</p>
 <img src="/images/2016-02-07/04.png" alt="image 04" />
 <p><strong>User Stories</strong></p>
 <p>Capybara tests are based on the user experience, which shouldn’t require any knowledge of what the code base looks like. First write a user story ( in the Agile sense of the word), and then write the test to represent it. The basic user story format is as follows:</p>
-<p>As a [user] (What kind of user? Guest? Authenticated? New? Existing but unauthenticated?)
-<p>When I [do something]
-<p>And I [do something else] ...(however many times you need to ‘and I…’)</p>
-<p>Then I [expect this to happen]...(however many things you expect to happen)</p>
+<p class="indent">As a [user] (What kind of user? Guest? Authenticated? New? Existing but unauthenticated?)
+<p class="indent">When I [do something]
+<p class="indent">And I [do something else] ...(however many times you need to ‘and I…’)</p>
+<p class="indent">Then I [expect this to happen]...(however many things you expect to happen)</p>
 <p>Here’s a very basic example user story:</p>
-<p>As a user (the app here is very basic and has no authentication, so all users are the same kind)</p>
-<p>When I visit the home page</p>
-<p>And I click on the ‘new skill’ link</p>
-<p>And I fill in the ‘title’ field with a skill title</p>
-<p>And I fill in the ‘description’ field with a skill description</p>
-<p>And I select ‘school’ from the category drop-down menu</p>
-<p>And I click submit</p>
-<p>Then I should be redirected to the ‘skills’ page</p>
-<p>Then I should see my skill listed there with the above title and category</p>
+<p class="indent">As a user (the app here is very basic and has no authentication, so all users are the same kind)</p>
+<p class="indent">When I visit the home page</p>
+<p class="indent">And I click on the ‘new skill’ link</p>
+<p class="indent">And I fill in the ‘title’ field with a skill title</p>
+<p class="indent">And I fill in the ‘description’ field with a skill description</p>
+<p class="indent">And I select ‘school’ from the category drop-down menu</p>
+<p class="indent">And I click submit</p>
+<p class="indent">Then I should be redirected to the ‘skills’ page</p>
+<p class="indent">Then I should see my skill listed there with the above title and category</p>
 <p><strong>Capybara syntax</strong></p>
-<p>All that’s left to do after that is to translate the above user story into Capybara. My whole test looks like this:</p>
+<p>All that’s left to do after that is to translate the above user story into Capybara. My whole test looks like this (each line of the test can effectively be mapped to a line of the user story, above):</p>
 <img src="/images/2016-02-07/05.png" alt="image 05" />
-<p><span =”code”>visit</span>, <span =”code”>fill_in</span>, <span =”code”>select</span>, <span =”code”>click_button</span>, <span =”code”>current_path</span>, <span =”code”>within</span>, and <span =”code”>has_content?</span> are all built in Capybara methods. A more complete list of available methods and how to use them can be found <a href="https://upcase.com/test-driven-rails-resources/capybara.pdf">here</a></p>
+<p><span class=”code”>visit</span>, <span class=”code”>fill_in</span>, <span class=”code”>select</span>, <span class=”code”>click_button</span>, <span class=”code”>current_path</span>, <span class=”code”>within</span>, and <span class=”code”>has_content?</span> are all built in Capybara methods. A more complete list of available methods and how to use them can be found <a href="https://upcase.com/test-driven-rails-resources/capybara.pdf">here</a></p>
 <p>All that’s left from there is to run the test and see the rainbow!</p>
 <img src="/images/2016-02-07/06.png" alt="image 06" />
 <p>You should, of course, have tests for each piece of your CRUD functionality, both for when the user does everything as expected, as well as edge cases and exceptions. The process will be the same for all of these. Happy testing!</p>

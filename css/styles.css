@@ -144,3 +144,7 @@ a {
 body {
   color: #1b4b5a;
 }
+
+.indent {
+  text-indent: 10px;
+}
