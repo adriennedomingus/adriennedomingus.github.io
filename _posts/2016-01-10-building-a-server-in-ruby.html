@@ -8,10 +8,12 @@ layout: post
   <p>Turns out it's not, actually. Some of that feeling lingers, but I have a better understanding now of how the HTTP Request/Response cycle works that I hope to be able to apply once we move into things like Rails.</p>
   <p>Here's the gist of it:</p>
   <p>We created a server that listens to port 9292 using Ruby's TCPServer class:</p>
-  <img src="/images/2016-01-10/01.png" alt="image 01" />
+  <script src="https://gist.github.com/adriennedomingus/3d05e6c74b452abe6396.js"></script>
+  <!-- <img src="/images/2016-01-10/01.png" alt="image 01" /> -->
   <p>You can see all the methods a TCP Server can take <a href="http://ruby-doc.org/stdlib-1.9.3/libdoc/socket/rdoc/TCPServer.html#method-i-accept" target="_blank">here</a>. It's not much.</p>
-  <p>But what it can do is accept requests (it's really line 13 we're looking at here):</p>
-  <img src="/images/2016-01-10/02.png" alt="image 02" />
+  <p>But what it can do is accept requests (it's really line 2 we're looking at here):</p>
+  <script src="https://gist.github.com/adriennedomingus/814d877289f80ac657dc.js"></script>
+  <!-- <img src="/images/2016-01-10/02.png" alt="image 02" /> -->
   <p>So once you open your server (do some other stuff, and then run the file from your command line), you can send it a request from your browser:</p>
   <img src="/images/2016-01-10/03.png" alt="image 03" />
   <p>This is what the request looks like:</p>
@@ -23,7 +25,8 @@ layout: post
   <p>You can do different things based on the verb and path (show different output, redirect...), you can do things with the parameters (we had to use our computer's dictionary to determine whether the parameter was a known word or not), and on and on.</p>
   <p>The above approach becomes a little problematic once you need to send <span class="code">POST</span> requests with the parameters in the body instead of the url. There is an empty line between the headers and the body of the request, and that code definitionally stops when it hits a blank line, but we'll leave it there for our purposes.</p>
   <p>All that's left after that is to send the server a response, so that it knows what to do with the request:</p>
-  <img src="/images/2016-01-10/07.png" alt="image 07" />
+  <script src="https://gist.github.com/adriennedomingus/ac048e6cafa4d0e1deca.js"></script>
+  <!-- <img src="/images/2016-01-10/07.png" alt="image 07" /> -->
   <p>Mostly, ours ran the <span class="code">server_response</span> method (lines 43-52), but the game required a redirect, so followed the <span class="code">game_server_response</span> method (lines 54-61). The <span class="code">@response</span> variable (lines 44 and 55) contained the information we wanted outputted to the browser, and was determined and formatted elsewhere, not shown.</p>
   <p>This was all run in a loop, so you could send a new request after each response. So there you have it - an HTTP Request/Response cycle!</p>
   <p><strong>Functionality vs. All the Rest of the Stuff</strong></p>
