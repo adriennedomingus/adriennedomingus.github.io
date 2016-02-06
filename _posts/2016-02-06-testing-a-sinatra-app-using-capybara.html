@@ -5,7 +5,8 @@ layout: post
 <p>A beginning note: Because we’re using Sinatra as a stepping stone to Rails, we built our app with the MVC model, and the testing reflects that. </p>
 <p><strong>Gems</strong></p>
 <p>First things first. Add the following to your gemfile, if they’re not already there:</p>
-<img src="/images/2016-02-07/01.png" alt="image 01" />
+<script src="https://gist.github.com/adriennedomingus/879887c4e08ca4754e22.js"></script>
+<!-- <img src="/images/2016-02-07/01.png" alt="image 01" /> -->
 <p><em>Minitest:</em> Capybara uses minitest. You should have model tests that use it too (unless you’re using something like Rspec instead).</p>
 <p><em>Capybara:</em> obviously you need capybara to run capybara.</p>
 <p><em>Launchy:</em> this allows you to run the <span class="code">save_and_open_page_path</span> command when writing your tests. When you do this, it saves a copy of the html page your test currently has you on, and opens it in a browser - used for debugging.</p>
