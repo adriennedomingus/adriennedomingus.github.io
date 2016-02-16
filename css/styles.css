@@ -149,6 +149,8 @@ body {
   text-indent: 20px;
 }
 
-li {
+ul {
   list-style-type: none;
+  font-family: "Courier New", Courier, monospace;
+  color: #1b4b5a;
 }
