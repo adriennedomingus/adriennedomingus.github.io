@@ -148,3 +148,7 @@ body {
 .indent {
   text-indent: 20px;
 }
+
+li {
+  list-style-type: none;
+}

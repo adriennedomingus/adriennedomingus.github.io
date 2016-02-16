@@ -21,20 +21,24 @@ layout: post
 <p>Line 12 just tells the program where to save the html files that are generated when you run the <span class="code">save_and_open_page_path</span> command, so you can add that file to your .gitignore file.</p>
 <p><strong>User Stories</strong></p>
 <p>Capybara tests are based on the user experience, which shouldn’t require any knowledge of what the code base looks like. First write a user story ( in the Agile sense of the word), and then write the test to represent it. The basic user story format is as follows:</p>
-<p class="indent">As a [user] (What kind of user? Guest? Authenticated? New? Existing but unauthenticated?)
-<p class="indent">When I [do something]
-<p class="indent">And I [do something else] ...(however many times you need to ‘and I…’)</p>
-<p class="indent">Then I [expect this to happen]...(however many things you expect to happen)</p>
-<p>Here’s a very basic example user story:</p>
-<p class="indent">As a user (the app here is very basic and has no authentication, so all users are the same kind)</p>
-<p class="indent">When I visit the home page</p>
-<p class="indent">And I click on the ‘new skill’ link</p>
-<p class="indent">And I fill in the ‘title’ field with a skill title</p>
-<p class="indent">And I fill in the ‘description’ field with a skill description</p>
-<p class="indent">And I select ‘school’ from the category drop-down menu</p>
-<p class="indent">And I click submit</p>
-<p class="indent">Then I should be redirected to the ‘skills’ page</p>
-<p class="indent">Then I should see my skill listed there with the above title and category</p>
+<ul>
+  <li>As a [user] (What kind of user? Guest? Authenticated? New? Existing but unauthenticated?)</li>
+  <li>When I [do something]</li>
+  <li>And I [do something else] ...(however many times you need to ‘and I…’)</li>
+  <li>Then I [expect this to happen]...(however many things you expect to happen)</li>
+</ul>
+<p>Here’s a very basic example user story:</li>
+<ul>
+  <li>As a user (the app here is very basic and has no authentication, so all users are the same kind)</p>
+  <li>When I visit the home page</li>
+  <li>And I click on the ‘new skill’ link</li>
+  <li>And I fill in the ‘title’ field with a skill title</li>
+  <li>And I fill in the ‘description’ field with a skill description</li>
+  <li>And I select ‘school’ from the category drop-down menu</li>
+  <li>And I click submit</li>
+  <li>Then I should be redirected to the ‘skills’ page</li>
+  <li>Then I should see my skill listed there with the above title and category</li>
+</ul>
 <p><strong>Capybara syntax</strong></p>
 <p>All that’s left to do after that is to translate the above user story into Capybara. My whole test looks like this (each line of the test can effectively be mapped to a line of the user story, above):</p>
 <script src="https://gist.github.com/adriennedomingus/a8e4e4472084cc1208c4.js"></script>
