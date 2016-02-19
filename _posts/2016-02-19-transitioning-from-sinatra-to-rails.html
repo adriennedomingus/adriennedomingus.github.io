@@ -1,0 +1,25 @@
+---
+layout: post
+---
+
+<div class="post-contents">
+<h3>Routes, Controllers, and Views</h3>
+<p> We made our first foray into Rails today. Because we wrote our Sinatra apps in the MVC model, the transition was jarring mostly in the simplicity of it - how many things Rails does for me, that I had to create for myself in Sinatra. For example, this in Rails:</p>
+<script src="https://gist.github.com/adriennedomingus/2eed3cf03e479f916825.js"></script>
+<p>Replaces this, in Sinatra:</p>
+<script src="https://gist.github.com/adriennedomingus/f6b259e551c6bbb6f823.js"></script>
+<p>That's not quite accurate. The first snippet automatically creates all seven of the routes shown above and automatically links them to their controller and action, but doesn't actually create the code that fulfills the logic side of things. The views still need to be rendered in the controllers with their accompanying logic. To see that these routes actually exist and where they point, run <span class="code">rake routes</span> in your command line, and you'll get this for the above example:</p>
+<img class="command-line" src="/images/2016-02-21/01.png" alt="image 01" />
+<p>This tells me I now need to create the <span class="code">teachers_controller</span> file that has actions for <span class="code">index</span>,<span class="code">create</span>, <span class="code">new</span>, <span class="code">edit</span>, <span class="code">show</span>, <span class="code">update</span>, and <span class="code">destroy</span> within it. </p>
+<h3>Forms and HTTP Verbs</h3>
+Because many browsers only recognize <span class="code">GET</span> and <span class="code">POST</span>, as HTTP verbs, we had to do something like this in our Sinatra app to get <span class="code">PUT</span> and <span class="code">DELETE</span> functionality:
+<script src="https://gist.github.com/adriennedomingus/c193ee5be21a01b74364.js"></script>
+In Rails, in the case of <span class="code">PUT</span>/<span class="code">PATCH</span>, you can just put the form in the view corresponding with the action, and it automatically knows which verb to apply to the request. In the case of Delete, to avoid having to use a form, you can do the following in a link, anywhere in your app(assuming the route and ivar have been defined):
+<span class="code">  <%= link_to "Delete", article_path(@article), method: :delete %></span>
+<script src="https://gist.github.com/adriennedomingus/c193ee5be21a01b74364.js"></script>
+<h3>Testing and Errors</h3>
+<p>Initial setup is a little different in rails, but it's not notable, conceptually. The verbosity of the errors is notable. Errors like the below are everywhere, and tell me exactly what I need to do next. Even if I know where to go next, this is TDD at it's best (errors in the console when running tests are similarly helpful.)</p>
+<img class="command-line" src="/images/2016-02-21/02.png" alt="image 02" />
+<p>I may never write another Sinatra app, but the learning was invaluable in the deeper understanding it gave me about what Rails is doing behind the scenes. </p>
+<a class="inline previous-post" href="http://adriennedomingus.github.io/2016/02/06/testing-a-sinatra-app-using-capybara.html">...Previous Post</a>
+</div>
