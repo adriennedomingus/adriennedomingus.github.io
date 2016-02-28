@@ -9,13 +9,16 @@ layout: post
 <h3>Additional Setup</h3>
 <p>There were a few things I had to do to get my app sending emails that weren't in the Rails documentation.</p>
 <ol class="post-list">
-  <li>Set a 'from' email address.Remember this line of code the documentation had you write? <span class="code">mail(to: @user.email, subject: 'Welcome to My Awesome Site')</span>Change, it so it also includes something like this: <span class="code">mail(to: @user.email, from: "me@example.com", subject: 'Welcome to My Awesome Site')</span>. Put your email address there. If you want to send from a gmail address, walk away now. I can't help you. You'll get something that looks like this (You know how to fix this, you say? Great, share the knowledge with me!):</li>
+  <li>1. Set a 'from' email address. Remember this line of code the documentation had you write? <span class="code">mail(to: @user.email, subject: 'Welcome to My Awesome Site')</span>. Change it so it also includes something like this: <span class="code">mail(to: @user.email, from: "me@example.com", subject: 'Welcome to My Awesome Site')</span>. Put your email address there. If you want to send from a gmail address, walk away now. I can't help you. You'll get something that looks like this (You know how to fix this, you say? Great, share the knowledge with me!):</li>
+  <br/>
   <img class="command-line" src="/images/2016-02-28/01.png" alt="image 01" />
-  <p>You'll also have to add the following code to whichever environments you want to be able to send emails from (definitely production, maybe development too):</p>
+  <br/>
+  <li>2. You'll also have to add the following code to whichever environments you want to be able to send emails from (definitely production, maybe development too):</li>
+  <br/>
   <script src="https://gist.github.com/adriennedomingus/ef091d98ea72df1de99b.js"></script>
   <p>A couple notes on this:</p>
   <ul class="post-list">
-    <li>-The default for the development environment is to not send emails and not raise errors if it's not working properly. If you want to send emails from your development environment, you'll want to include the following lines of code as well:</li>
+    <li>-The default for the development environment is to not send emails and not raise errors if it's not working properly. If you want to send emails from your development environment, you'll want to include the following lines of code in your config/environments/development.rb file as well:</li>
     <br/>
     <script src="https://gist.github.com/adriennedomingus/f0ec6ceffc433fa7f37f.js"></script>
     </li>
