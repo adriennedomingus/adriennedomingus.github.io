@@ -12,7 +12,9 @@ layout: post
   <li>1. Set a 'from' email address. Remember this line of code the documentation had you write? <span class="code">mail(to: @user.email, subject: 'Welcome to My Awesome Site')</span>. Change it so it also includes something like this: <span class="code">mail(to: @user.email, from: "me@example.com", subject: 'Welcome to My Awesome Site')</span>. Put your email address there. If you want to send from a gmail address, walk away now. I can't help you. You'll get something that looks like this (You know how to fix this, you say? Great, share the knowledge with me!):</li>
   <br/>
   <img class="command-line" src="/images/2016-02-28/01.png" alt="image 01" />
+  <br/>
   <li>2. You'll also have to add the following code to whichever environments you want to be able to send emails from (definitely production, maybe development too):</li>
+  <br/>
   <script src="https://gist.github.com/adriennedomingus/ef091d98ea72df1de99b.js"></script>
   <p>A couple notes on this:</p>
   <ul class="post-list">
