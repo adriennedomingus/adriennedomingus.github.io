@@ -18,13 +18,15 @@ layout: post
   <script src="https://gist.github.com/adriennedomingus/ef091d98ea72df1de99b.js"></script>
   <p>A couple notes on this:</p>
   <ul class="post-list">
-    <li>-The default for the development environment is to not send emails and not raise errors if it's not working properly. If you want to send emails from your development environment, you'll want to include the following lines of code in your config/environments/development.rb file as well:</li>
-    <br/>
-    <script src="https://gist.github.com/adriennedomingus/f0ec6ceffc433fa7f37f.js"></script>
-    </li>
     <li>-<strong>Do not hardcode your email address and password</strong> if you are pushing your code to GitHub or anywhere else the world might be able to find it. My app is hosted on Heroku, so you can set your environment variables in your app by going to "Settings", and clicking on "Reveal Config Vars". You can name them whatever you want from there, and fill in the correct values. Mine look something like this:
       <img class="command-line" src="/images/2016-02-28/02.png" alt="image 02" />
       The port should be 587 in most cases, and the email domain will be different depending on where the email address you're using is hosted.
+     </li>
+     <br/>
+     <li>-The default for the development environment is to not send emails and not raise errors if it's not working properly. If you want to send emails from your development environment, you'll want to include the following lines of code in your config/environments/development.rb file as well:</li>
+     <br/>
+     <script src="https://gist.github.com/adriennedomingus/f0ec6ceffc433fa7f37f.js"></script>
+     Keep in mind that your development environment won't have access to the config vars you set in Heroku, so you may need to hardcode the values there, and add that file to your .gitignore file so the world doesn't have access to them.
      </li>
   </ul>
 </ol>
