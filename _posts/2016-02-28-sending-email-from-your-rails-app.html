@@ -1,24 +1,30 @@
+---
+layout: post
+---
+<div class="post-contents">
 <p>You get emails from apps all the time. When you sign up. When you have an upcoming appointment. I thought this would be tricky, but as has been the pattern so far, Rails makes it pretty easy. (Google, on the other hand, did a lot to complicate it. More on that later.)</p>
 
 <h3>Basic Setup</h3>
 <p>The <a href="http://guides.rubyonrails.org/action_mailer_basics.html">Rails Documentation on ActionMailer</a> is actually really helpful here. For intial setup, I basically followed all the steps through "2 Sending Emails". No need to re-write the wheel here. </p>
 <h3>Additional Setup</h3>
-There were a few things I had to do to get my app sending emails that weren't in the Rails documentation.
-<ol>
-  <li>Set a 'from' email address.</li>
-  <p> Remember this line of code the documentation had you write? <span class="code">mail(to: @user.email, subject: 'Welcome to My Awesome Site')</span>Change, it so it also includes something like this: <span class="code">mail(to: @user.email, from: "me@example.com", subject: 'Welcome to My Awesome Site')</span></p> Put your email address there. If you want to send from a gmail address, walk away now. I can't help you. You'll get something that looks like this (You know how to fix this, you say? Great, share the knowledge with me!):
+<p>There were a few things I had to do to get my app sending emails that weren't in the Rails documentation.</p>
+<ol class="post-list">
+  <li>Set a 'from' email address.Remember this line of code the documentation had you write? <span class="code">mail(to: @user.email, subject: 'Welcome to My Awesome Site')</span>Change, it so it also includes something like this: <span class="code">mail(to: @user.email, from: "me@example.com", subject: 'Welcome to My Awesome Site')</span>. Put your email address there. If you want to send from a gmail address, walk away now. I can't help you. You'll get something that looks like this (You know how to fix this, you say? Great, share the knowledge with me!):</li>
   <img class="command-line" src="/images/2016-02-28/01.png" alt="image 01" />
-  You'll also have to add the following code to whichever environments you want to be able to send emails from (definitely production, maybe development too):
+  <p>You'll also have to add the following code to whichever environments you want to be able to send emails from (definitely production, maybe development too):</p>
   <script src="https://gist.github.com/adriennedomingus/ef091d98ea72df1de99b.js"></script>
-  A couple notes on this:
-  <ul>
-    <li>The default for the development environment is to not send emails and not raise errors if it's not working properly. If you want to send emails from your development environment, you'll want to include the following lines of code as well:</li>
+  <p>A couple notes on this:</p>
+  <ul class="post-list">
+    <li>-The default for the development environment is to not send emails and not raise errors if it's not working properly. If you want to send emails from your development environment, you'll want to include the following lines of code as well:</li>
+    <br/>
     <script src="https://gist.github.com/adriennedomingus/f0ec6ceffc433fa7f37f.js"></script>
     </li>
-    <li><strong>Do not hardcode your email address and password</strong> if you are pushing your code to GitHub or anywhere else the world might be able to find it. My app is hosted on Heroku, so you can set your environment variables in your app by going to "Settings", and clicking on "Reveal Config Vars". You can name them whatever you want from there, and fill in the correct values. Mine look something like this:
+    <li>-<strong>Do not hardcode your email address and password</strong> if you are pushing your code to GitHub or anywhere else the world might be able to find it. My app is hosted on Heroku, so you can set your environment variables in your app by going to "Settings", and clicking on "Reveal Config Vars". You can name them whatever you want from there, and fill in the correct values. Mine look something like this:
       <img class="command-line" src="/images/2016-02-28/02.png" alt="image 02" />
       The port should be 587 in most cases, and the email domain will be different depending on where the email address you're using is hosted.
      </li>
   </ul>
 </ol>
 <p>And you should be good to go! Send those emails.</p>
+<a class="inline previous-post" href="http://adriennedomingus.github.io/2016/02/19/transitioning-from-sinatra-to-rails.html">...Previous Post</a>
+</div>
