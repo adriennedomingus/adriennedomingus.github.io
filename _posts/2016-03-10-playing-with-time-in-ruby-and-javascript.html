@@ -7,6 +7,7 @@ layout: post
   <p>This actually applies to things other than time, but I found it's first application here. When checking to see if an item in our shop was reserved on a date another customer was trying to make a reservation, we looked at all the other reservations already connected to that item, and checked whether the proposed new reservation's start date was included in any of them. This required the <span class="code">===</span> operator, which I'd never used in Ruby before - it checks inclusion within a range. Here's how it looks in pry, and how we applied it: </p>
   <img class="command-line" src="/images/2016-03-10/01.png" alt="image 01" />
   <br/>
+  <br/>
   <script src="https://gist.github.com/adriennedomingus/154e37896bde8ac0dc40.js"></script>
   <h4>Strings to Time Objects</h4>
   <p>When users request the start and end dates for their reservation, they are returned as strings that look something like "10 March, 2016", which is not useful in creating Time objects. Fortunately, Ruby has a built in module that will convert date strings into their index, which can then be used to create Time objects. Here's how:</p>
@@ -16,7 +17,7 @@ layout: post
     <li> Javascript note: Unlike in Ruby, months are zero-indexed in Javascript (January is 0, etc.). This is confusing after being so used to the index of months, but as everything in programming is zero-indexed, it does have the benefit of consistency.
   </ul>
   <h4>Subtracting Time</h4>
-  <p>In order to know the length of a reservation, we subtracted the start date from the end date. In Ruby, this returns a fraction like 10/1 for a 10-day reservation. JavaScript, on the other hand, returns the difference in milliseconds. In order to get the number of days, we did this joyful bit of math: <span class="code">return value / 24 / 60 / 60 / 1000</span> to get the number of days.</p>
+  <p>In order to know the length of a reservation, we subtracted the start date from the end date. In Ruby, this returns a fraction like 10/1 for a 10-day reservation. JavaScript, on the other hand, returns the difference in milliseconds. In order to get the number of days, we did this joyful bit of math: <span class="code">returnValue / 24 / 60 / 60 / 1000</span> to get the number of days.</p>
   <h4>Conclusion</h4>
   <p>All in all, I didn't find time as daunting as I thought I might. Both Ruby and JavaScript have time objects that do most of the heavy lifting for you, as long as you make sure to create them as you need them from the get-go.</p>
   <a class="inline previous-post" href="http://adriennedomingus.github.io/2016/02/28/sending-email-from-your-rails-app.html">...Previous Post</a>
